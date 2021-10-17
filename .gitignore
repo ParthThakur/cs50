@@ -1,2 +1,4 @@
-*.exe
+*
+!/**/
+!*.*
 problem_sets/*

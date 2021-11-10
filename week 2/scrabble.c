@@ -19,9 +19,48 @@ int main(void)
     int score2 = compute_score(word2);
 
     // TODO: Print the winner
+    if (score1 > score2)
+    {
+        printf("Player 1 wins!\n");
+    }
+    else if (score1 < score2)
+    {
+        printf("Player 2 wins!\n");
+    }
+    else
+    {
+        printf("Tie!\n");
+    }
+}
+
+
+int letterIndex(char letter)
+{
+    letter = toupper(letter);
+    int letterASCII = (int)letter;
+
+    if (letterASCII > 64 && letterASCII < 91)
+    {
+        return letterASCII - 65;
+    }
+    return -1;
+
 }
 
 int compute_score(string word)
 {
     // TODO: Compute and return score for string
+    int score = 0;
+    int wordLen = strlen(word);
+
+    for (int i = 0; i < wordLen; i++)
+    {
+        int letter_index = letterIndex(word[i]);
+        if (letter_index >= 0)
+        {
+            score += POINTS[letter_index];
+        }
+    }
+
+    return score;
 }

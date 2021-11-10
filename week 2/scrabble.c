@@ -18,7 +18,6 @@ int main(void)
     int score1 = compute_score(word1);
     int score2 = compute_score(word2);
 
-    // TODO: Print the winner
     if (score1 > score2)
     {
         printf("Player 1 wins!\n");
@@ -36,6 +35,7 @@ int main(void)
 
 int letterIndex(char letter)
 {
+    // Get index of a letter to access the POINTS array.
     letter = toupper(letter);
     int letterASCII = (int)letter;
 
@@ -43,13 +43,15 @@ int letterIndex(char letter)
     {
         return letterASCII - 65;
     }
+
+    // Return -1 if input is not a letter.
     return -1;
 
 }
 
 int compute_score(string word)
 {
-    // TODO: Compute and return score for string
+    // Compute score of input word.
     int score = 0;
     int wordLen = strlen(word);
 
@@ -58,6 +60,7 @@ int compute_score(string word)
         int letter_index = letterIndex(word[i]);
         if (letter_index >= 0)
         {
+            // Add to score only if input is a letter.
             score += POINTS[letter_index];
         }
     }
